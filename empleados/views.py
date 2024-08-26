@@ -65,7 +65,7 @@ def registrar_empleado(request):
         apellido = request.POST.get('apellido_empleado')
         email = request.POST.get('email_empleado')
         edad = request.POST.get('edad_empleado')
-        genero = request.POST.get('genero_empleado')
+        # genero = request.POST.get('genero_empleado')
         salario = request.POST.get('salario_empleado')
 
         # Obtén la imagen del formulario
@@ -80,7 +80,7 @@ def registrar_empleado(request):
             apellido_empleado=apellido,
             email_empleado=email,
             edad_empleado=edad,
-            genero_empleado=genero,
+            # genero_empleado=genero,
             salario_empleado=salario,
             foto_empleado=foto_empleado,
         )
@@ -118,7 +118,7 @@ def actualizar_empleado(request, id):
             empleado.apellido_empleado = request.POST.get('apellido_empleado')
             empleado.email_empleado = request.POST.get('email_empleado')
             empleado.edad_empleado = int(request.POST.get('edad_empleado'))
-            empleado.genero_empleado = request.POST.get('genero_empleado')
+            # empleado.genero_empleado = request.POST.get('genero_empleado')
 
             # Convierte el valor a Decimal
             salario_empleado = Decimal(request.POST.get(
@@ -151,7 +151,7 @@ def informe_empleado(request):
 
         # Agrega encabezados
         worksheet.append(
-            ['Nombre del Empleado', 'Apellido del Empleado', 'Edad del Empleado', 'Sexo del Empleado', 'Email del Empleado', 'Salario del Empleado', 'Fecha de Registro'])
+            ['Nombre del Empleado', 'Apellido del Empleado', 'Edad del Empleado', 'Email del Empleado', 'Salario del Empleado', 'Fecha de Registro'])
 
         # Agrega los datos a la hoja de trabajo
         for dato in datos:
@@ -190,7 +190,7 @@ def cargar_archivo(request):
                     apellido_empleado = row['Apellido']
                     edad_empleado = row['Edad']
                     email_empleado = row['Email']
-                    genero_empleado = row['Sexo']
+                    # genero_empleado = row['Sexo']
                     salario_empleado = row['Salario']
 
                     empleado, creado = Empleado.objects.update_or_create(
@@ -200,7 +200,7 @@ def cargar_archivo(request):
                             'apellido_empleado': apellido_empleado,
                             'edad_empleado': edad_empleado,
                             'email_empleado': email_empleado,
-                            'genero_empleado': genero_empleado,
+                            # 'genero_empleado': genero_empleado,
                             'salario_empleado': salario_empleado,
                             'foto_empleado': '',
                         }
